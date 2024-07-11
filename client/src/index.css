@@ -174,3 +174,17 @@
 .modal label{
    font-size: 13px;
 }
+ /* Auth */
+ .auth-container {
+   display: flex;
+   justify-content: center;
+   margin: 50px;
+ }
+
+ .auth-container-box{
+   width: 500px;
+   border-radius: 10px;
+   overflow: hidden;
+   box-shadow: rgba(0,0,0,0.05) 0 6px 24px, rgba(0,0,0,0.08) 0 0 0 1px;
+
+ }

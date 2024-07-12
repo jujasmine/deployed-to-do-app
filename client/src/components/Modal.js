@@ -1,13 +1,15 @@
 import { useState } from 'react'
+import { useCookies } from 'react-cookie'
 
 const Modal = ({mode, setShowModal, getData, task}) => {
+  const [cookies, setCookie, removeCookie] = useCookies(null)
   const editMode = mode === 'edit' ? true : false
    
   const [data, setData] = useState({
-    user_email: editMode ? task.user_email : 'jasmine.ju753@gmail.com',
+    user_email: editMode ? task.user_email : cookies.Email,
     title: editMode ? task.title : '',
     progress: editMode ? task.progress : 50,
-    date: editMode ? new Date(task.date).toISOString : new Date().toISOString
+    date: editMode ? new Date(task.date).toISOString() : new Date().toISOString()
   })
 
   const postData = async (e) => {
@@ -75,7 +77,7 @@ const Modal = ({mode, setShowModal, getData, task}) => {
               onChange={handleChange}
             />
             <br/>
-            <label for="range">Drag to Select your current progress</label>
+            <label htmlFor="range">Drag to Select your current progress</label>
             <input
               required
               type="range"
